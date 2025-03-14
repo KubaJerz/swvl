@@ -1,0 +1,13 @@
+here we test building out the model from:
+
+Guangyong Zheng, Yuming Xu,
+Efficient face detection and tracking in video sequences based on deep learning,
+Information Sciences,
+Volume 568,
+2021,
+Pages 265-285,
+ISSN 0020-0255,
+https://doi.org/10.1016/j.ins.2021.03.027.
+
+
+we plan to use this model achatecture for our camera 
