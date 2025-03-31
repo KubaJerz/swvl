@@ -12,7 +12,7 @@ class RegHead(nn.Module):
 
         self.l0 = nn.Linear((1024 * S * S), 4096)
         self.drop = nn.Dropout(dropout)
-        self.act = nn.LeakyReLU(0.1)
+        self.act = nn.LeakyReLU(0.5)
         self.l1 = nn.Linear(4096, (S * S * (B * 5)))
 
     def forward(self, x):
