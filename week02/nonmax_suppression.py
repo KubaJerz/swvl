@@ -1,8 +1,7 @@
 import torch
 import torchvision.ops as ops
 
-
-def non_max_supp(preds, confidence_threshold = 0.2, iou_threshold=0.5, S=7):
+def non_max_supp(preds, confidence_threshold = 0.35, iou_threshold=0.5, S=7, return_type='xywh'):
     batch_size = preds.shape[0]
     all_res = []
 
@@ -44,11 +43,11 @@ def non_max_supp(preds, confidence_threshold = 0.2, iou_threshold=0.5, S=7):
         #here we get the idx of the valid boxes after non max suppreshion
         res = ops.nms(torch.stack(all_boxes_xyxy), torch.stack(all_scores), iou_threshold=iou_threshold)
         # for each of the idx we combine now with confidacne  
-        keep_boxes = [ torch.cat((all_scores[idx].unsqueeze(0), all_boxes_xywh[idx][:])) for idx in res]
+        if return_type == 'xywh':
+            keep_boxes = [ torch.cat((all_scores[idx].unsqueeze(0), all_boxes_xywh[idx][:])) for idx in res]
+        elif return_type == 'xyxy':
+            keep_boxes = [ torch.cat((all_scores[idx].unsqueeze(0), all_boxes_xyxy[idx][:])) for idx in res]
         #we append to the total preds list for each batch
         all_res.append(torch.stack(keep_boxes))
         
     return all_res
-
-
-            
