@@ -11,7 +11,7 @@ class YoloDataset(Dataset):
         self.C = C
 
     def __len__(self):
-        return len(self.X)
+        return 1
     
     def __getitem__(self, index):
         image = self.X
