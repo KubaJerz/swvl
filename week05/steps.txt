@@ -1,0 +1,3 @@
+Now that we know generaly what works and what does not from week03 
+
+we will make a whole script to train a bunch of models with sampled hyperparams

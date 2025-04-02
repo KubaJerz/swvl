@@ -46,7 +46,7 @@ class Yolo_Loss(nn.Module):
     def forward(self, prediction, target):
         prediction = prediction.view(-1, self.S, self.S, self.B*5)
         iou0 = iou(prediction[..., 1:5], target[..., 1:5]) #prediction is (S*S, B*5) => (S*S, B*(confidence, x,y,wh))
-        iou1 = iou(prediction[..., 6:10], target[..., 6:10]) #prediction is (S*S, B*5) => (S*S, B*(confidence, x,y,wh))
+        iou1 = iou(prediction[..., 6:10], target[..., 1:5]) #prediction is (S*S, B*5) => (S*S, B*(confidence, x,y,wh))
         ious = torch.cat([iou0.unsqueeze(0), iou1.unsqueeze(0)], dim=0)
         iou_maxes, bestbox = torch.max(ious, dim=0)
         bestbox = bestbox.unsqueeze(dim=-1)
