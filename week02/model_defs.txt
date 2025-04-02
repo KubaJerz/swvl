@@ -1,0 +1,5 @@
+00 is sgd from try04
+
+01 is .27 mAP try12_SGD
+
+02 is .29 mAP try14
