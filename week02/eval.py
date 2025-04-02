@@ -10,7 +10,7 @@ from mAP import mAP
 from tqdm import tqdm
 
 
-PATH_TO_MODEL = '/home/kuba/projects/swvl/week02/pp00.pt'
+PATH_TO_MODEL = '/home/kuba/projects/swvl/week03/experiments/try14/best_dev_loss.pt'
 PATH_TO_TEST_DIR = '/home/kuba/Documents/data/raw/single-face-tensors/test'
 
 #set up model

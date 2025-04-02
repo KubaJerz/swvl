@@ -10,6 +10,7 @@ class RegHead(nn.Module):
         self.conv2 = nn.Conv2d(1024, 1024, 3, padding=1)
         self.conv3 = nn.Conv2d(1024, 1024, 3, padding=1)
 
+        # self.l0 = nn.Linear((4096 * S * S), 4096)
         self.l0 = nn.Linear((1024 * S * S), 4096)
         self.drop = nn.Dropout(dropout)
         self.act = nn.LeakyReLU(0.1)

@@ -1,0 +1,9 @@
+
+optimizer type: AdamW lr: 3e-05 
+Other paramiters: ['betas: (0.9, 0.999)', 'eps: 1e-08', 'weight_decay: 0.0005', 'amsgrad: True', 'foreach: None', 'maximize: False', 'capturable: False', 'differentiable: False', 'fused: None']   
+
+EPOCHS: 250
+
+Batchsize: train:32 dev:32
+
+Dropout: 0.5
