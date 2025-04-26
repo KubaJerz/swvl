@@ -2,16 +2,20 @@ import torch
 from model import FaceDetector
 from torch.utils.data import ConcatDataset, DataLoader
 import os
-from yoloy_dataset import YoloDataset
-from loss import Yolo_Loss
+from full_face_dataset import FullFaceDataset
+from loss_multiface import Yolo_Loss
 from nonmax_suppression import non_max_supp
 from utils import yolo_labels_to_xyxy
 from mAP import mAP
 from tqdm import tqdm
+from torchvision import transforms
 
+PATH_TO_MODEL = '/home/kuba/projects/swvl/week06/experiments/full_lr0.0001_dropout0.5_wd0.01/best_dev_loss.pt'
 
-PATH_TO_MODEL = '/home/kuba/projects/swvl/week05/experiments/full_lr0.001_dropout0.65_wd0.0005/best_dev_loss.pt'
-PATH_TO_TEST_DIR = '/home/kuba/Documents/data/raw/single-face-tensors/test'
+#----------------
+TEST_CSV_PATH = '/home/kuba/Documents/data/raw/face-detection-dataset/test.csv'
+PATH_IMG_TEST_DIR = '/home/kuba/Documents/data/raw/face-detection-dataset/images/val'
+PATH_LABELS_TEST_DIR = '/home/kuba/Documents/data/raw/face-detection-dataset/labels/val'
 
 #set up model
 model = FaceDetector()
@@ -21,19 +25,11 @@ model.eval()
 
 #setup test data
 
-all_train_datasets = []
 
-for file in sorted(os.listdir(PATH_TO_TEST_DIR)):
-    try:
-        dataset = YoloDataset((PATH_TO_TEST_DIR+"/"+file))
-        all_train_datasets.append(dataset)
-    except Exception as e:
-        print(f"Error loading {file}: {str(e)}")
-        continue
+# transform_img_net =  transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+full_dataset = FullFaceDataset(csv_file=TEST_CSV_PATH, img_dir=PATH_IMG_TEST_DIR, label_dir=PATH_LABELS_TEST_DIR, transforms=None, target_size=(448, 448))
 
-combined = ConcatDataset(all_train_datasets)
-
-test_loader = DataLoader(combined, batch_size=512)
+test_loader = DataLoader(full_dataset, batch_size=256)
 criterion = Yolo_Loss()
 
 all_logits = []
@@ -70,6 +66,6 @@ truths_xyxy = yolo_labels_to_xyxy(truths)
 
 map = mAP(supp_predictions, truths_xyxy)
 
-
+print(f"eval model at: {os.path.join(*(PATH_TO_MODEL).split(sep='/')[-2:])}")
 print(f"map is: {map}")
 print(f"avg loss is: {loss_total}")

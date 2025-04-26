@@ -1,0 +1,15 @@
+
+    optimizer type: SGD lr: 1e-05 
+    Other parameters: ['momentum: 0.9', 'dampening: 0', 'weight_decay: 0.0005', 'nesterov: False', 'maximize: False', 'foreach: None', 'differentiable: False', 'fused: None', 'initial_lr: 1e-05']   
+    
+EPOCHS: 200
+    
+Batchsize: train:64 dev:128
+    
+Dropout: 0.4
+    
+scheduler type: MultiStepLR 
+    parameters: ['milestones:Counter({30: 1})', 'gamma:10', 'base_lrs:[1e-05]', 'last_epoch:0', 'verbose:False', '_get_lr_called_within_step:False', '_last_lr:[1e-05]']
+    
+Dataset: FULL
+    

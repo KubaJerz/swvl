@@ -1,0 +1,11 @@
+Not imgnet normalized
+Size = (448, 448)
+dropout = 0.5
+lr = 0.001
+momentum =0.9
+batch_size = 64
+Constants = lamba corr = 10
+            lmbda no obj = 0.5
+            reduce  = sum
+
+leaky relu = 0.1

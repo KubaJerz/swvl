@@ -1,1 +1,1 @@
-using what we built in week02 to post train our face detector built on restnet 50
+Using what we built in week02 to post train our face detector built on restnet 50

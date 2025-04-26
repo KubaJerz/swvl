@@ -6,7 +6,7 @@ from PIL import Image
 from torchvision import transforms
 
 class FullFaceDataset(Dataset):
-    def __init__(self, csv_file, img_dir, label_dir, S=7, B=2, C = 0, target_size=(224, 224),transforms=None):
+    def __init__(self, csv_file, img_dir, label_dir, S=7, B=2, C = 0, target_size=(448, 448),transforms=None):
         super().__init__()
         self.annotations = pd.read_csv(csv_file)
         self.img_dir = img_dir

@@ -10,4 +10,7 @@ ISSN 0020-0255,
 https://doi.org/10.1016/j.ins.2021.03.027.
 
 
-we plan to use this model achatecture for our camera 
+we plan to use this model architecture for your camera 
+
+The model architecture was built semi-correctly, but to properly do this, we need to return our results differently than we do now.
+We learned later on in the project that the approach here is wrong — both the loss function and the model outputs need to be improved.

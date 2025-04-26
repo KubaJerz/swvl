@@ -1,1 +1,2 @@
-we now modify the dataset and loss to work on imges with multiple faces.
+we now modify the dataset and loss to work on images with multiple faces.
+then we test out training to make sure it works
