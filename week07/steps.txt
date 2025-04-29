@@ -1,1 +1,1 @@
-we use the model built in week 01 and train it on the imgnet dataset
+we now try with depthwise seperable convolution

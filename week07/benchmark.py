@@ -38,9 +38,11 @@ def main():
 
     for dir in sorted(os.listdir(path_to_experiments_dir)):
         if dir == "00":
-            model_dict_path = os.path.join(path_to_experiments_dir, dir, 'best_dev_loss.pth')
-        else:
-            model_dict_path = os.path.join(path_to_experiments_dir, dir, 'best_dev_loss.pt')
+            model_dict_path = os.path.join(path_to_experiments_dir, dir, 'best_dev_loss057_dsc.pth')
+        elif dir == "01":
+            model_dict_path = os.path.join(path_to_experiments_dir, dir, 'best_dev_loss053_dsc.pth')
+        elif dir == "02":
+            model_dict_path = os.path.join(path_to_experiments_dir, dir, 'best_dev_loss0476_dsc.pth')
         print(f"Res for: {model_dict_path.split()[-1]}")
 
         model = FaceDetector()

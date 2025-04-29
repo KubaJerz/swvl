@@ -10,7 +10,7 @@ from mAP import mAP
 from tqdm import tqdm
 from torchvision import transforms
 
-PATH_TO_MODEL = '/home/kuba/projects/swvl/week06/experiments/00/best_dev_loss.pth'
+PATH_TO_MODEL = '/home/kuba/projects/swvl/week07/experiments/02/best_dev_loss0476_dsc.pth'
 
 #----------------
 TEST_CSV_PATH = '/home/kuba/Documents/data/raw/face-detection-dataset/test.csv'
