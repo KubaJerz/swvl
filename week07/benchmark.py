@@ -24,7 +24,7 @@ def benchmark_single_img(model, img, runs=100, device='cuda:0'):
 
 def main():
     path_to_experiments_dir = sys.argv[1]
-    img_path = "/home/kuba/Documents/data/raw/face-detection-dataset/images/train/ffff54ccbcad1111.jpg"
+    img_path = "/Users/kuba/Documents/data/raw/face-detection-dataset/images/train/ffff54ccbcad1111.jpg"
 
     transform = transforms.Compose([
         transforms.ToTensor(),
@@ -48,7 +48,7 @@ def main():
         model = FaceDetector()
         model.load_state_dict(state_dict=torch.load(model_dict_path, weights_only=True))
 
-        benchmark_single_img(model, img_tensor, runs=100, device='cpu')
+        benchmark_single_img(model, img_tensor, runs=100, device='mps')
         
     
 
